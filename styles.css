@@ -1,51 +1,44 @@
-.bg-animation {
-    width: 100vw;
-    height: 100vw;
+@font-face {
+  font-family: 'Adventure';
+  src: url('adventure/Adventure.otf');
 }
 
-/* @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap') repeat scroll 0 0 rgba(0, 0, 0 , 0);
+@font-face {
+  font-family: 'Adventure Hollow';
+  src: url('adventure/Adventure\ Hollow.otf');
+}
 
 body {
-  background: #fff;
+  margin: 0;
 }
 
-.title {
-  font-size: 2.5rem;
-  font-family: 'Lobster', cursive;
-}
-
-.wrapper {
-  animation: scroll 70s linear infinite;
-  background: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80"), #111111;
-  color: #eee;
-  height: 100vh;
-  min-width: 360px;
-  width: 100%;
+main {
+  margin: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 1000px;
-  perspective-origin: 50% 50%;
-  
 }
 
-@keyframes scroll {
-   100%{
-    background-position:0px -3000px;
-  }
+h1{
+  position: absolute;
+  text-align: center;
+  color: white;
+  width: 100vw;
+  background-color: aqua;
+  margin: 0 auto;
+  padding: .3em;
+  font-family: Adventure;
+  font-size: 30pt;
 }
 
-@media (prefers-reduced-motion) {
-  .wrapper {
-    animation: scroll 200s linear infinite;
-  }
+aside {
+  height: 100vh;
+  width: 15vw;
+  position: absolute;
+  margin-top: 100px;
+  font-family: 'Adventure'
 }
 
-@media (min-width: 670px) {
-  .title {
-    font-size: 5rem;
-  }
-} */itle {
-    font-size: 5rem;
-  }
-} */
+.bg-animation {
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+}
