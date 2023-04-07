@@ -1,20 +1,54 @@
 @font-face {
   font-family: 'Adventure';
-  src: url('adventure/Adventure.otf');
+  src: url('fonts/adventure/Adventure.otf');
 }
 
 @font-face {
   font-family: 'Adventure Hollow';
-  src: url('adventure/Adventure\ Hollow.otf');
+  src: url('fonts/adventure/Adventure\ Hollow.otf');
+}
+
+@font-face {
+  font-family: 'fire';
+  src: url('fonts/fires/fires.ttf');
+}
+
+@font-face {
+  font-family: 'japanese';
+  src: url('fonts/japanese_3017/Japanese_3017.ttf');
+}
+
+@font-face {
+  font-family: bubblez;
+  src: url('fonts/bubblez_2/bubblez-regular.ttf');
+}
+
+@font-face {
+  font-family: primary;
+  src: url('fonts/kg_primary_penmanship/kg_primary_lined_nospace.ttf');
+}
+
+@font-face {
+  font-family: "keep on truckin";
+  src: url('fonts/keep_on_truckin_fw/keepontruckin.ttf');
+}
+
+@font-face {
+  font-family: kremlin;
+  src: url('fonts/kremlin.ttf');
 }
 
 body {
   margin: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 main {
   margin: 0;
   display: flex;
+  width: 100vw;
+  height: 100vh;
 }
 
 h1{
@@ -22,23 +56,189 @@ h1{
   text-align: center;
   color: white;
   width: 100vw;
-  background-color: aqua;
+  background-color: rgba(0,255,255,0.75);
   margin: 0 auto;
   padding: .3em;
   font-family: Adventure;
   font-size: 30pt;
 }
 
+h2 {
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  position: fixed;
+  width: 200px;
+  height: 75px;
+}
+
 aside {
-  height: 100vh;
+  height: 87vh;
   width: 15vw;
   position: absolute;
-  margin-top: 100px;
-  font-family: 'Adventure'
+  margin-top: 0;
+  padding: 100px 0px 0px 0px;
+  font-family: 'Adventure';
+  background-color: rgba(238, 238, 238,0.25);
+  color: white;
+  font-size: 15pt;
 }
 
 .bg-animation {
-    width: 100vw;
-    height: 100vh;
-    margin: 0 auto;
+    padding: 0;
+    z-index: -1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.keys {
+  align-self: flex-end;
+  margin: 0 0 20vh 20vw;
+  border: dashed hotpink 10px;
+  background-color: cyan;
+  font-family: kremlin;
+}
+
+.keys:hover {
+  display:none;
+}
+
+.red {
+  width: 300px;
+  height: 100px;
+  margin-top: 25vh;
+  background-color: rgba(255, 0, 0, 0.75);
+  animation-name: move-left;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  z-index: 1;
+  color: white;
+  font-family: 'fire';
+}
+
+.blue {
+  width: 300px;
+  height: 100px;
+  margin-top: 75vh;
+  background-color: rgba(8, 0, 255, 0.75);
+  animation-name: move-up;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  z-index: 1;
+  color: white;
+  font-family: 'japanese';
+}
+
+.yellow {
+  width: 300px;
+  height: 100px;
+  background-color: rgba(255, 242, 0, 0.75);
+  animation-name: move-up;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  align-self: flex-end;
+  z-index: 1;
+  color: black;
+  font-family: "keep on truckin"
+}
+
+.purple {
+  width: 300px;
+  height: 100px;
+  margin-top: 50vh;
+  background-color: rgba(255, 0, 187, 0.75);
+  animation-name: move-left;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  z-index: 1;
+  color: white;
+  font-family: fire;
+}
+
+.green {
+  width: 300px;
+  height: 100px;
+  background-color: rgba(0, 255, 55, 0.75);
+  animation-name: move-right;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  z-index: 1;
+  color: white;
+  font-family: bubblez;
+}
+
+.orange {
+  width: 300px;
+  height: 100px;
+  position: fixed;
+  margin-left: 5vw;
+  background-color: rgba(255, 165, 0, 0.75);
+  animation-name: move-down;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  z-index: 1;
+  color: white;
+  font-family: primary;
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(100vw);
+  }
+  50% {
+    transform: translateX(0vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes move-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateY(0vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes move-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-900%);
+  }
 }
