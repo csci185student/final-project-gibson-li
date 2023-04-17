@@ -242,3 +242,10 @@ aside {
     transform: translateY(-900%);
   }
 }
+
+.trail { /* className for the trail elements */
+  position: absolute;
+  height: 16px; width: 16px;
+  border-radius: 10px;
+  background: yellowgreen;
+}
