@@ -47,3 +47,19 @@ function animate() {
 }
 animate();
 
+
+
+
+// Get a reference to the image element
+// const nut = document.querySelector('.nut');
+
+// // Generate random margin values between 0 and 50 pixels
+// const topMargin = Math.floor(Math.random() * 500);
+// const leftMargin = Math.floor(Math.random() * 500);
+
+// // Apply the margins to the image
+// document.querySelectorAll('.nut').forEach(nut => {
+//   nut.style.margin = `${topMargin}px ${leftMargin}px`;
+// });
+
+
