@@ -3,8 +3,6 @@ var dots = [],
       x: 0,
       y: 0
     };
-
-
 var Dot = function() {
   this.x = 0;
   this.y = 0;
@@ -15,25 +13,18 @@ var Dot = function() {
     return n;
   }());
 };
-
 Dot.prototype.draw = function() {
   this.node.style.left = this.x + "px";
   this.node.style.top = this.y + "px";
 };
-
-
 for (var i = 0; i < 12; i++) {
   var d = new Dot();
   dots.push(d);
 }
-
-
 function draw() {
   
   var x = mouse.x,
       y = mouse.y;
-  
-
   dots.forEach(function(dot, index, dots) {
     var nextDot = dots[index + 1] || dots[0];
     
@@ -45,18 +36,14 @@ function draw() {
 
   });
 }
-
 addEventListener("mousemove", function(event) {
   //event.preventDefault();
   mouse.x = event.pageX;
   mouse.y = event.pageY;
 });
-
-
 function animate() {
   draw();
   requestAnimationFrame(animate);
 }
-
-
 animate();
+
