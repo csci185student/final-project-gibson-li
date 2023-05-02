@@ -156,16 +156,15 @@ aside {
     transform: translateX(-50%) translateY(-50%);
 }
 
-.keys {
-  align-self: flex-end;
-  margin: 0 0 20vh 20vw;
-  border: dashed hotpink 10px;
-  background-color: cyan;
-  font-family: kremlin;
-}
-
-.keys:hover {
-  display:none;
+.info {
+  padding: 10px;
+  background-color: rgba(165, 42, 42, .7);
+  border-radius: 25px;
+  width: auto;
+  height: auto;
+  font-family: "keep on truckin";
+  color: white;
+  z-index: -1;
 }
 
 /* DISTRACTING DIVS */
