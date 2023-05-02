@@ -1,3 +1,5 @@
+
+// MOUSE TRAIL BELOW
 var dots = [],
     mouse = {
       x: 0,
@@ -48,18 +50,91 @@ function animate() {
 animate();
 
 
+// NUTS BELOW
+const nuts = [
+  document.querySelector('.nut-1'),
+  document.querySelector('.nut-2'),
+  document.querySelector('.nut-3'),
+  document.querySelector('.nut-4'),
+  document.querySelector('.nut-5'),
+  document.querySelector('.nut-6'),
+  document.querySelector('.nut-7'),
+  document.querySelector('.nut-8')
+];
+const viewportWidth = window.innerWidth;
+const viewportHeight = window.innerHeight;
+
+function randomNuts() {
+  console.log('place nut randomly');
+  for (i = 0; i < nuts.length; i++) {
+    let randomX = Math.floor(Math.random() * viewportWidth);
+    let randomY = Math.floor(Math.random() * viewportHeight);
+    nuts[i].style.left = `${randomX}px`;
+    nuts[i].style.top = `${randomY}px`;
+  };
+};
+
+randomNuts();
 
 
-// Get a reference to the image element
-// const nut = document.querySelector('.nut');
+// DRAW SQUIRREL BELOW, MOVE CONTROLLER
 
-// // Generate random margin values between 0 and 50 pixels
-// const topMargin = Math.floor(Math.random() * 500);
-// const leftMargin = Math.floor(Math.random() * 500);
+let x = 0;
+let y = 0;
+let squirrel = document.querySelector('#squirrel');
+const canvasWidth = window.innerWidth;
+const canvasHeight = window.innerHeight; 
 
-// // Apply the margins to the image
-// document.querySelectorAll('.nut').forEach(nut => {
-//   nut.style.margin = `${topMargin}px ${leftMargin}px`;
-// });
+function setup() {
+    createCanvas(canvasWidth, canvasHeight);
+    drawGrid(canvasWidth, canvasHeight);
+}
 
+function drawGrid() {}
+
+function moveController(ev) {
+    console.log(ev.code);
+    if (ev.code === 'ArrowRight') {
+        console.log('move image right')
+        x = x + 15;
+        squirrel.style.left = `${x}px`;
+    } else if (ev.code === 'ArrowLeft') {
+        console.log('move image left')
+        x = x - 15;
+        squirrel.style.left = `${x}px`;
+    } else if (ev.code === 'ArrowUp') {
+        console.log('move image up')
+        y = y - 15;
+        squirrel.style.top = `${y}px`;
+    } else if (ev.code === 'ArrowDown') {
+        console.log('move image down')
+        y = y + 15;
+        squirrel.style.top = `${y}px`;
+    }
+    // detect collisions with nuts
+    nuts.forEach(nut => {
+      const nutRect = nut.getBoundingClientRect();
+      const squirrelRect = squirrel.getBoundingClientRect();
+      if (intersectRect(nutRect, squirrelRect)) {
+        console.log('collision detected');
+        const soundUrl = nut.dataset.sound;
+        const audio = new Audio(soundUrl);
+        audio.play();
+      }
+    });
+
+    drawGrid(canvasWidth, canvasHeight);
+}
+
+
+
+// Helper function to check if two rectangles intersect
+function intersectRect(r1, r2) {
+  return !(r2.left > r1.right || 
+           r2.right < r1.left || 
+           r2.top > r1.bottom ||
+           r2.bottom < r1.top);
+}
+
+document.addEventListener('keydown', moveController);
 

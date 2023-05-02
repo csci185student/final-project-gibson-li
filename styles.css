@@ -42,6 +42,7 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 main {
@@ -49,6 +50,7 @@ main {
   display: flex;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 h1{
@@ -61,14 +63,59 @@ h1{
   padding: .3em;
   font-family: Adventure;
   font-size: 30pt;
+  animation: none;
+}
+
+h1:hover {
+  transform: scaleX(200%);
+  animation: strobe 1s forwards infinite;
+}
+
+@keyframes strobe {
+  0% {
+    color: orange;
+    text-shadow: 0px 0px 10px white;
+  }
+  20% {
+    color: hotpink;
+    text-shadow: 0px 0px 10px black;
+  }
+  40% {
+    color: blue;
+    text-shadow: 0px 0px 10px black;
+  }
+  60% {
+    color: lime;
+    text-shadow: 0px 0px 10px black;
+  }
+  80% {
+    color: red;
+    text-shadow: 0px 0px 10px black;
+  }
+  100% {
+    color: rgb(148, 37, 148);
+    text-shadow: 0px 0px 10px white;
+  }
 }
 
 h2 {
   text-decoration: underline;
 }
 
+h2:hover {
+  opacity: 0;
+}
+
 h3 {
   font-size: 1.5rem;
+}
+
+h3:hover {
+  opacity: 0;
+}
+
+li:hover {
+  opacity: 0;
 }
 
 div {
@@ -93,6 +140,7 @@ aside {
   background-color: rgba(238, 238, 238,0.25);
   color: white;
   font-size: 15pt;
+  
 }
 
 .bg-animation {
@@ -161,7 +209,7 @@ aside {
   align-self: flex-end;
   z-index: 1;
   color: black;
-  font-family: "keep on truckin"
+  font-family: "keep on truckin";
 }
 
 .purple {
@@ -252,13 +300,29 @@ aside {
   background: yellowgreen;
 }
 
-.nut {
+.nut-1,
+.nut-2,
+.nut-3,
+.nut-4,
+.nut-5,
+.nut-6,
+.nut-7,
+.nut-8 {
   position: fixed;
-  top: 700px;
-  left: 250px;
   width: 75px;
+  animation: flash .6s forwards infinite;
+  filter: brightness(1);
+  z-index: 0;
 }
 
-.squirrel {
+#squirrel {
   width: 150px;
+  position: absolute;
 }
+
+@keyframes flash {
+  50% {
+    filter: brightness(3.5);
+  }
+}
+
