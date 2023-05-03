@@ -158,21 +158,51 @@ aside {
 
 .info {
   padding: 10px;
-  background-color: rgb(165, 42, 42);
+  background-color: rgba(165, 42, 42, .7);
   border-radius: 25px;
   width: auto;
   height: auto;
   font-family: "keep on truckin";
   color: white;
   z-index: -1;
+  text-align: justify;
+  border: double black 3px;
+  box-shadow: 3px 2px 10px red;
 }
 
-#change-text {
-  display: none;
+.change-text {
+  opacity: 0;
 }
 
-#hover-me:hover + #change-text {
-  display: block;
+.change-text:active {
+  opacity: 100;
+}
+
+.instructions {
+  width: 300px;
+  height: 50px;
+  z-index: 100;
+  position: absolute;
+  top: 0px;
+  left: 150px;
+  padding: 10px;
+  margin: 0 auto;
+  font-family: Adventure;
+  font-size: 15pt;
+  background-color: rgba(0, 255, 255, 1);
+  animation: flashy 1s forwards infinite;
+  border: dashed 3px hotpink;
+}
+
+@keyframes flashy {
+  50%{
+    color: hotpink;
+    border-color: hotpink;
+  }
+  100% {
+    color: black;
+    border-color: black;
+  }
 }
 
 

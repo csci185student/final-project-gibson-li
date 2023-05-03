@@ -117,9 +117,7 @@ function moveController(ev) {
       const squirrelRect = squirrel.getBoundingClientRect();
       if (intersectRect(nutRect, squirrelRect)) {
         console.log('collision detected');
-        const soundUrl = nut.dataset.sound;
-        const audio = new Audio(soundUrl);
-        audio.play();
+        nut.style.opacity = 0;
       }
     });
 
